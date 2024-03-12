@@ -5,6 +5,7 @@ const initialState = {
   users: [],
   user: JSON.parse(localStorage.getItem("user")) || null,
   names: "",
+  ref: [],
 };
 
 export const authSlice = createSlice({

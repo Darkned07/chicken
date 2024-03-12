@@ -84,10 +84,14 @@ function Navbar() {
                   <Link to="/profile">My Profile</Link>
                 </li>
                 <li>
-                  <h2>Deposit:0$</h2>
+                  <Link to="/deposit">
+                    Deposit: <span>{user.balansone}$</span>
+                  </Link>
                 </li>
                 <li>
-                  <h2>Withdraw:0$</h2>
+                  <Link to="/withdraw">
+                    Withdraw: <span>{user.balanstwo}$</span>
+                  </Link>
                 </li>
                 <li>
                   <Link to="/mychick">My Chicken</Link>

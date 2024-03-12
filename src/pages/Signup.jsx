@@ -3,7 +3,7 @@ import { useSignup } from "../hooks/useSignup";
 import { useRef } from "react";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { logAuth } from "../redux/features/authSlice";
+import { logAuth, logoutUser } from "../redux/features/authSlice";
 
 function Signup() {
   const dispatch = useDispatch();
@@ -41,6 +41,13 @@ function Signup() {
                 balanstwo: 0,
                 time: date.toDateString(),
               });
+              setTimeout(() => {
+                dispatch(logoutUser());
+                toast.success("Saytga Login qilib kirishingiz mumkun :)");
+              }, 20000);
+              toast.warning(
+                "Ro'yxatdan muvaffaqiyatli o'tdingiz. 20 soniya ichida acc dan chiqarib yuborilasiz Bu tekshiruv uchun kerak acc ga qayta kiring!"
+              );
               dispatch(
                 logAuth({
                   name: name.current.value,

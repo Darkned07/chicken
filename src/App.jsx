@@ -15,11 +15,12 @@ import { useSelector } from "react-redux";
 import Profile from "./pages/Profile";
 
 function App() {
+  const dispatch = useDispatch();
   const { doc } = useUsers();
   const { user } = useSelector((data) => data.auth);
-  console.log(user);
-  const dispatch = useDispatch();
+
   dispatch(usersAuth(doc));
+
   const routes = createBrowserRouter([
     {
       path: "/",
