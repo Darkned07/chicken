@@ -22,7 +22,7 @@ function Login() {
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="flex-col lg:flex-row-reverse">
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <h2 className="text-[30px] text-secondary text-center font-bold mt-[20px]">
               Login

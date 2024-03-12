@@ -69,12 +69,15 @@ function Signup() {
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className=" flex-col lg:flex-row-reverse">
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <h2 className="text-[30px] text-secondary text-center font-bold mt-[20px]">
               Sign Up
             </h2>
-            <form onSubmit={handleSignup} className="card-body">
+            <form
+              onSubmit={handleSignup}
+              className="card-body w-[300px] sm:w-full"
+            >
               <label className="input input-bordered input-secondary flex items-center gap-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
