@@ -27,7 +27,10 @@ function Login() {
             <h2 className="text-[30px] text-secondary text-center font-bold mt-[20px]">
               Login
             </h2>
-            <form onSubmit={handleLogin} className="card-body">
+            <form
+              onSubmit={handleLogin}
+              className="card-body sm:w-full w-[300px]"
+            >
               <label className="input input-bordered input-secondary flex items-center gap-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
