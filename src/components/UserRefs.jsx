@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 function UserRefs() {
-  const { user } = useSelector((use) => use.auth);
+  const { user, ref } = useSelector((use) => use.auth);
   const textElementRef = useRef(null);
   const textSilka = useRef(null);
 
@@ -64,39 +64,69 @@ function UserRefs() {
         </div>
         <div>
           <h2 className="text-center my-[20px] text-[18px] sm:text-[22px] md:text-[28px] font-bold italic">
-            Siz chaqirgan odamlar: 1
+            Siz chaqirgan odamlar: <span>{ref && ref.length}</span>
           </h2>
-          <div className="overflow-x-auto">
-            <table className="table table-xs">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Register Day</th>
-                  <th>Withdraw</th>
-                  <th>Deposit</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>test</td>
-                  <td>test@gmail.com</td>
-                  <td>Mon March 11 2024</td>
-                  <td>100$</td>
-                  <td>100$</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Register Day</th>
-                  <th>Withdraw</th>
-                  <th>Deposit</th>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
+          {ref.length <= 0 && (
+            <h3 className="text-center text-[20px] font-semibold sm:text-[25px] md:text-[30px]">
+              siz hali bironta ham dostizni taklif qilmagansiz :(
+            </h3>
+          )}
+          {ref.length >= 1 && (
+            <div className="overflow-x-auto">
+              <table className="table table-xs">
+                <thead>
+                  <tr>
+                    <th className="md:text-[25px] underline font-bold">Name</th>
+                    <th className="md:text-[25px] underline font-bold">
+                      Email
+                    </th>
+                    <th className="md:text-[25px] underline font-bold">
+                      Register Day
+                    </th>
+                    <th className="md:text-[25px] underline font-bold">
+                      Withdraw
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ref &&
+                    ref.length >= 1 &&
+                    ref.map((res) => {
+                      return (
+                        <tr key={res.id}>
+                          <td className="md:text-[20px] italic font-medium">
+                            {res.name}
+                          </td>
+                          <td className="md:text-[20px] italic font-medium">
+                            {res.email}
+                          </td>
+                          <td className="md:text-[20px] italic font-medium">
+                            {res.time}
+                          </td>
+                          <td className="md:text-[20px] italic font-medium">
+                            {res.withdraw}$
+                          </td>
+                        </tr>
+                      );
+                    })}
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th className="md:text-[25px] underline font-bold">Name</th>
+                    <th className="md:text-[25px] underline font-bold">
+                      Email
+                    </th>
+                    <th className="md:text-[25px] underline font-bold">
+                      Register Day
+                    </th>
+                    <th className="md:text-[25px] underline font-bold">
+                      Withdraw
+                    </th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          )}
         </div>
       </div>
     </div>

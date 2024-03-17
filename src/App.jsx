@@ -13,6 +13,8 @@ import { useDispatch } from "react-redux";
 import { usersAuth } from "./redux/features/authSlice";
 import { useSelector } from "react-redux";
 import Profile from "./pages/Profile";
+import Depozit from "./pages/Depozit";
+import Withdraw from "./pages/Withdraw";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +39,14 @@ function App() {
         {
           path: "/profile",
           element: <Profile />,
+        },
+        {
+          path: "/deposit",
+          element: <Depozit />,
+        },
+        {
+          path: "/withdraw",
+          element: <Withdraw />,
         },
       ],
     },

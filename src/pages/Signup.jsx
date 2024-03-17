@@ -43,11 +43,11 @@ function Signup() {
               });
               setTimeout(() => {
                 dispatch(logoutUser());
-                toast.success("Saytga Login qilib kirishingiz mumkun :)");
-              }, 20000);
-              toast.warning(
-                "Ro'yxatdan muvaffaqiyatli o'tdingiz. 20 soniya ichida acc dan chiqarib yuborilasiz Bu tekshiruv uchun kerak acc ga qayta kiring!"
-              );
+                toast.success(
+                  "Ro'yxatdan muvaffaqiyatli o'tdingiz. Endi saytga kirishingiz mumkun :)"
+                );
+              }, 100);
+
               dispatch(
                 logAuth({
                   name: name.current.value,

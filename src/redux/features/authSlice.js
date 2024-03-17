@@ -5,7 +5,7 @@ const initialState = {
   users: [],
   user: JSON.parse(localStorage.getItem("user")) || null,
   names: "",
-  ref: [],
+  ref: JSON.parse(localStorage.getItem("ref")) || [],
 };
 
 export const authSlice = createSlice({
@@ -15,6 +15,11 @@ export const authSlice = createSlice({
     logAuth: (state, { payload }) => {
       state.user = payload;
       localStorage.setItem("user", JSON.stringify(payload));
+      const item = state.users.filter((d) => d.friend === state.user.id);
+      if (item) {
+        localStorage.setItem("ref", JSON.stringify(item));
+        state.ref = item;
+      }
     },
     usersAuth: (state, { payload }) => {
       state.users = payload;
@@ -26,6 +31,5 @@ export const authSlice = createSlice({
   },
 });
 
-export const { logAuth, usersAuth, logoutUser, searchUserName } =
-  authSlice.actions;
+export const { logAuth, usersAuth, logoutUser } = authSlice.actions;
 export default authSlice.reducer;
