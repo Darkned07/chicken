@@ -15,6 +15,7 @@ import { useSelector } from "react-redux";
 import Profile from "./pages/Profile";
 import Depozit from "./pages/Depozit";
 import Withdraw from "./pages/Withdraw";
+import Mychicken from "./pages/Mychicken";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,10 @@ function App() {
         {
           path: "/withdraw",
           element: <Withdraw />,
+        },
+        {
+          path: "/mychick",
+          element: <Mychicken />,
         },
       ],
     },
